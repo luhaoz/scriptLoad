@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>DEMO</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+
+	<script type="text/javascript" src="scriptLoad.js"></script>
+	<script type="text/javascript">
+	scriptLoad.
+		addTask('javascript','js/js1.js',{'ver':'1.1.2','callBack':function(){
+			document.getElementById('load-log').innerHTML += 'js1.js 加载完成<br>';
+		}}).
+		addTask('javascript','js/js2.js',{'ver':0,'rely':'js/js3.js','callBack':function(){
+			document.getElementById('load-log').innerHTML += 'js2.js 加载完成<br>';
+		}}).
+		addTask('javascript','js/js4.js',{'ver':0,'rely':['js/js5.js','js/js6.js'],'callBack':function(){
+			document.getElementById('load-log').innerHTML += 'js4.js 加载完成<br>';
+		}}).
+		addTask('javascript','js/js8.js',
+			{'ver':0,'rely':
+				{'js/js7.js':
+					{'rely':
+						{'js/js9.js':
+							{'ver':'test1',
+								'callBack':function(){ 
+										document.getElementById('load-log').innerHTML += 'js9.js 加载完成<br>';
+								}
+							}
+						},
+						'callBack':function(){ 
+							document.getElementById('load-log').innerHTML += 'js7.js 加载完成<br>';
+						}
+					}
+				},'callBack':function(){
+					document.getElementById('load-log').innerHTML += 'js8.js 加载完成<br>';
+					}
+			}
+		).
+	run();
+	</script>
+</head>
+<body>
+	<div id="load-log">
+		
+	</div>
+</body>
+</html>
