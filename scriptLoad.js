@@ -35,6 +35,7 @@ scriptLoad = (function(){
 			'element'	:{},
 			'status'	:'ready',
 			'ver'		:0,
+			'validity'	:function(){},
 			'callBack'	:function(){},
 			'defaultOption':true
 		}
@@ -110,6 +111,9 @@ scriptLoad = (function(){
 					break;
 					case 'callBack':
 						this.setEvent('afterLoad',$options[$option]);
+					break;
+					case 'validity':
+						this.setEvent('beforeLoad',$options[$option]);
 					break;
 				}
 			}

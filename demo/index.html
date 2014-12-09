@@ -8,7 +8,7 @@
 	<script type="text/javascript" src="scriptLoad.js"></script>
 	<script type="text/javascript">
 	scriptLoad.
-		addTask('javascript','js/js1.js',{'ver':'1.1.2','callBack':function(){
+		addTask('javascript','js/js1.js',{'validity':function(){return false},'ver':'1.1.2','callBack':function(){
 			document.getElementById('load-log').innerHTML += 'js1.js 加载完成<br>';
 		}}).
 		addTask('javascript','js/js2.js',{'ver':0,'rely':'js/js3.js','callBack':function(){

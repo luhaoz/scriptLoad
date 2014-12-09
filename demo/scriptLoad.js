@@ -35,6 +35,7 @@ scriptLoad = (function(){
 			'element'	:{},
 			'status'	:'ready',
 			'ver'		:0,
+			'validity'	:function(){},
 			'callBack'	:function(){},
 			'defaultOption':true
 		}
@@ -77,10 +78,9 @@ scriptLoad = (function(){
 				switch($option){ 
 					case 'rely':
 						var $relyData = {}
-						if (typeof $options['rely'] == 'string') {
+						if ($options['rely'] instanceof String) {
 							var $tempValue = $options['rely'];
 							$options['rely'] = new Array($tempValue);
-
 						}
 						for (var $rely in $options['rely']) {
 
@@ -111,6 +111,9 @@ scriptLoad = (function(){
 					break;
 					case 'callBack':
 						this.setEvent('afterLoad',$options[$option]);
+					break;
+					case 'validity':
+						this.setEvent('beforeLoad',$options[$option]);
 					break;
 				}
 			}
