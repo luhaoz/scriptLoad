@@ -45,11 +45,7 @@
 				<p>添加此参数后除非依赖脚本成功加载否则不会进行当前文件的加载</p>
 				<p>此参数有三种写法</p>
 				<dl>
-					<dt><i>string 依赖脚本</i></dt>
-					<dd>
-						<p>直接rely后面输入一个字符串作为<i>scriptSrc</i> 举例 {rely:'rely1.js'}</p>
-						<p>此种写法会在rely1.js加载完成后再进行原本的加载</p>
-					</dd>
+					
 					<dt><i>array [依赖脚本1,依赖脚本2]</i></dt>
 					<dd>
 						<p>rely后面输入一个数组数组的值作为<i>scriptSrc</i> 举例 {rely:['rely1.js','rely2.js']}</p>
