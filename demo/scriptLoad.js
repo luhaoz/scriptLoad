@@ -78,10 +78,12 @@ scriptLoad = (function(){
 				switch($option){ 
 					case 'rely':
 						var $relyData = {}
+						/*
 						if ($options['rely'] instanceof String) {
 							var $tempValue = $options['rely'];
 							$options['rely'] = new Array($tempValue);
 						}
+						*/
 						for (var $rely in $options['rely']) {
 
 							switch(true){
@@ -134,7 +136,7 @@ scriptLoad = (function(){
 				_element.onreadystatechange = function(){ 
 					if (_element.readyState == "loaded" || _element.readyState == "complete"){
 						_element.onreadystatechange = null; 
-						this.runEvent('baseAfterLoad');
+						_this.runEvent('baseAfterLoad');
 					} 
 				}; 
 			} else { //Others: Firefox, Safari, Chrome, and Opera 
@@ -266,7 +268,6 @@ scriptLoad = (function(){
 		最后的执行方法执行run时才会开始执行脚本加载
 	*/
 	var run = function($options){
-		
 		for(var $task in _taskPool){
 			if (typeof $options == 'object' && _taskPool[$task].getOption('defaultOption')) {
 				_taskPool[$task].setOption($options);
